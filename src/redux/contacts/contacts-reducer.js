@@ -11,20 +11,9 @@ const initialStore = [
 ];
 
 const contactsReducer = createReducer(initialStore, {
-  [addContacts]: (state, { payload }) => [...state, payload],
+  [addContacts]: (state, { payload }) => state.push(payload),
   [deleteContacts]: (state, { payload }) =>
     state.filter(contact => contact.id !== payload.id),
 });
-
-// const contactsReducer = (store = initialStore, { type, payload }) => {
-//   switch (type) {
-//     case ADD_CONTACT:
-//       return [...store, payload];
-//     case DELETE_CONTACT:
-//       return store.filter(contact => contact.id !== payload.id);
-//     default:
-//       return store;
-//   }
-// };
 
 export default contactsReducer;
