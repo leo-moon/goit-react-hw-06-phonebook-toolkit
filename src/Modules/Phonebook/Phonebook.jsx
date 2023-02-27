@@ -5,8 +5,8 @@ import ContactForm from './ContactForm/ContactForm';
 import FindContact from './FindContact/FindContact';
 import Button from 'Modules/Button/Button';
 
-import { addContact, deleteContact } from 'redux/contacts/contacts-actions';
-import { filterContacts } from 'redux/filter/filter-actions';
+import { addContacts, deleteContacts } from 'redux/contacts/contacts-actions';
+import { setFilter } from 'redux/filter/filter-actions';
 
 import {
   getAllContacts,
@@ -37,7 +37,7 @@ const Phonebook = () => {
       return alert(`${name} is already in contacts`);
     }
 
-    dispatch(addContact({ name, number }));
+    dispatch(addContacts({ name, number }));
   };
 
   const isDublicate = name => {
@@ -49,11 +49,11 @@ const Phonebook = () => {
   };
 
   const removeContact = id => {
-    dispatch(deleteContact({ id }));
+    dispatch(deleteContacts({ id }));
   };
 
   const handleFilter = ({ target }) => {
-    dispatch(filterContacts(target.value));
+    dispatch(setFilter(target.value));
   };
   console.log(filter);
   const elementsLi = contactsFilter.map(({ id, name, number }) => (

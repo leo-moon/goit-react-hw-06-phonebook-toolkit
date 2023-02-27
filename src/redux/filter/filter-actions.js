@@ -1,8 +1,14 @@
-import { SET_FILTER } from './filter-types';
+import { createAction } from '@reduxjs/toolkit';
 
-export const filterContacts = payload => {
+export const setFilter = createAction('filter/set', data => {
   return {
-    type: SET_FILTER,
-    payload,
+    payload: { data },
   };
-};
+});
+
+// export const filterContacts = payload => {
+//   return {
+//     type: SET_FILTER,
+//     payload,
+//   };
+// };
